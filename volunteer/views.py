@@ -6,8 +6,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
 from django.contrib.auth import authenticate, login, logout
 
-def index(request):
+from django.conf import settings
 
+def index(request): 
+    print settings.STATIC_ROOT
     return render_to_response('volunteer/index.html', {
         
         }, context_instance=RequestContext(request))
