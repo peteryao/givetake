@@ -31,7 +31,7 @@
           <a class="brand" href="{% url 'index' %}">Give || Take</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="{% url 'index' %}">Home</a></li>
+              <li {% block active-index %}{% endblock %}><a href="{% url 'index' %}">Home</a></li>
               <li {% block active-listing %}{% endblock %}><a href="{% url 'listing' %}">Listings</a></li>
               <li {% block active-charity %}{% endblock %}><a href="{% url 'charity' %}">Charities</a></li>
               <li class="dropdown">
@@ -57,7 +57,7 @@
                   <li class="divider"></li>
                   <li class="nav-header">Nav header</li>
                   <li><a href="#">Separated link</a></li>
-                  <li><a href="{% url 'user_logout' %}">Logout</a></li>
+                  <li><a href="{% url 'auth_logout' %}">Logout</a></li>
                 </ul>
               </li>
             </ul>

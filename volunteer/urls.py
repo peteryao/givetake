@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.contrib.auth import authenticate, login, logout
 
 urlpatterns = patterns('volunteer.views',
     url(r'^$', 'index', name="index"),
@@ -8,5 +9,9 @@ urlpatterns = patterns('volunteer.views',
 
 urlpatterns += patterns('volunteer.views', 
     url(r'^user/login/$', 'user_login', name="user_login"),
-    url(r'^user/logout/$', 'user_logout', name="user_logout"),
+    )
+
+urlpatterns += patterns('',
+    url(r'^user/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="auth_logout"),
+    url(r'^user/logout/(?P<next_page>.*)/$', 'django.contrib.auth.views.logout', name='auth_logout_next'),
     )

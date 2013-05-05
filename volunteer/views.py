@@ -10,9 +10,7 @@ from django.conf import settings
 
 def index(request): 
 
-    return render_to_response('volunteer/index.html', {
-        
-        }, context_instance=RequestContext(request))
+    return render(request, 'volunteer/index.html', {})
 
 def listing(request):
     service_list = Service.objects.filter(available=True)
