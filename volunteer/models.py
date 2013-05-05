@@ -25,5 +25,5 @@ class Donation(models.Model):
     receiver = models.ForeignKey(User, null=True, related_name='receiver')
 
     def __unicode__(self):
-        return self.service.name , "<", self.provider, " <- ", self.receiver , ">" 
+        return self.service.name
 
