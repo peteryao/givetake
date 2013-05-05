@@ -2,33 +2,19 @@
 
 {% block active-charity %}class="active"{% endblock %}
 
-{% block content %}
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Name of Service</th>
-                <th>Provider</th>
-                <th>Charity</th>
-                <th>Amount</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for service in service_list %}
-            <tr>
-                <td>{{service}}</td>
-                <td>{{service.provider}}</td>
-                <td>{{service.charity}}</td>
-                <td>${{service.ammount|floatformat:2}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+{% block style %}
+{# <link href="{{ STATIC_URL }}m-style/css/m-styles.min.css" rel="stylesheet"> #}
+{# <link href="{{ STATIC_URL }}m-style/css/m-forms.min.css" rel="stylesheet"> #}
+<link href="{{ STATIC_URL }}m-style/css/m-buttons.css" rel="stylesheet">
+<link href="{{ STATIC_URL }}m-style/css/custom.css" rel="stylesheet">
+<link href="{{ STATIC_URL }}m-style/css/jquery.fancybox-1.3.4.css" rel="stylesheet">  
 
-          <div class="row section" id="portfolio">
-    <div class="container">
- 
-                  <h2>portfolio</h2>
-                  <p class="intro">Charities</p>
+{% endblock %}
+
+{% block content %}
+<div class="row section" id="portfolio" style="margin-top:-150px">
+    <h2>Charities</h2>
+    <p class="intro">A look at the different charities that we have available.</p>
       <!-- Start Portfolio Navigation -->
       <nav class="primary m-btn-group toggle-buttons clearfix">
           <ul>
@@ -42,108 +28,62 @@
       </nav>
  
  
-            <!-- START Portfolio items -->
- 
-            <section class="main clearfix">
- 
-            <div class="portfolio">
- 
-                <figure class="entry web logo">
-                    <img src="img/portfolio-image.jpg" alt="">
-                </figure>
- 
-                <figure class="entry web">
-                    <img src="img/portfolio-image2.jpg" alt="">
-                </figure>
- 
-                <figure class="entry logo">
-                    <img src="img/portfolio-image.jpg" alt="">
-                </figure>
- 
-                <figure class="entry web">
-                    <img src="img/portfolio-image.jpg" alt="">
-                </figure>
- 
-                <figure class="entry print">
-                    <img src="img/portfolio-image.jpg" alt="">
-                </figure>
- 
-                <figure class="entry ill">
-                    <img src="img/portfolio-image2.jpg" alt="">
-                </figure>
- 
-                <figure class="entry web">
-                    <img src="img/portfolio-image2.jpg" alt="">
-                </figure>
- 
-                <figure class="entry print">
-                    <img src="img/portfolio-image.jpg" alt="">
-                </figure>
- 
-                <figure class="entry video">
-                    <img src="img/portfolio-image2.jpg" alt="">
-                </figure>
- 
-                <figure class="entry web">
-                    <img src="img/portfolio-image2.jpg" alt="">
-                </figure>
- 
- 
- 
-            </div>
- 
-        </section>
- 
- 
- 
-    </div>
+        <!-- START Portfolio items -->
+
+      <section class="main clearfix">
+
+        <div class="portfolio">
+
+            <figure class="entry web logo">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image.jpg" alt="">
+            </figure>
+
+            <figure class="entry web">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image2.jpg" alt="">
+            </figure>
+
+            <figure class="entry logo">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image.jpg" alt="">
+            </figure>
+
+            <figure class="entry web">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image.jpg" alt="">
+            </figure>
+
+            <figure class="entry print">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image.jpg" alt="">
+            </figure>
+
+            <figure class="entry ill">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image2.jpg" alt="">
+            </figure>
+
+            <figure class="entry web">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image2.jpg" alt="">
+            </figure>
+
+            <figure class="entry print">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image.jpg" alt="">
+            </figure>
+
+            <figure class="entry video">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image2.jpg" alt="">
+            </figure>
+
+            <figure class="entry web">
+                <img src="{{ STATIC_URL }}volunteer/img/portfolio-image2.jpg" alt="">
+            </figure>
+
+
+
+        </div>
+
+    </section>
   </div>
  {% endblock %}
+
 {% block script %}
-<script>
-$(window).load(function(){
- 
-    var $container = $('.portfolio');
-    $container.isotope({
-        filter: '*',
-        animationOptions: {
-            duration: 750,
-            easing: 'linear',
-            queue: false,
-        }
-    });
- 
-   $('nav.primary ul a').click(function(){
-        var selector = $(this).attr('data-filter');
-        $container.isotope({
-            filter: selector,
-            animationOptions: {
-                duration: 750,
-                easing: 'linear',
-                queue: false,
-            }
-        });
-      return false;
-    });
- 
-   var $optionSets = $('nav.primary ul'),
-       $optionLinks = $optionSets.find('a');
-   
-       $optionLinks.click(function(){
-          var $this = $(this);
-      // don't proceed if already selected
-      if ( $this.hasClass('selected') ) {
-          return false;
-      }
-   var $optionSet = $this.parents('nav.primary ul');
-   $optionSet.find('.selected').removeClass('selected');
-   $this.addClass('selected');  
-});
- 
- 
- 
-});
-</script>
-
-
+<script src="{{ STATIC_URL }}m-style/js/jquery.js"></script>
+<script src="{{ STATIC_URL }}m-style/js/custom.js"></script>
+<script src="{{ STATIC_URL }}m-style/js/jquery.isotope.min.js"></script> 
 {% endblock %}
