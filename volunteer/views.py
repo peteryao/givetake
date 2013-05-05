@@ -19,3 +19,8 @@ def listing(request):
     context = {'service_list' : service_list}
     return render(request, 'volunteer/listing.html', context)
 
+
+def charities(request):
+    charity_list = Charity.objects.all()
+    context = {'charity_list' : charity_list}
+    return render(request, 'volunteer/charities.html', context)
