@@ -29,7 +29,6 @@ def charity_profile(request, charity_id):
     context = {'charity' : charity}
     return render(request, 'volunteer/charity_profile.html', context)
 
-
 def user_login(request):
     username = request.POST['username']
     password = request.POST['password']
