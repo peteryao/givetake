@@ -23,6 +23,12 @@ def charities(request):
     context = {'charity_list' : charity_list}
     return render(request, 'volunteer/charities.html', context)
 
+def charity_profile(request, charity_id):
+    charity = Charity.objects.get(pk=charity_id)
+    context = {'charity' : charity}
+    return render(request, 'volunteer/charity_profile.html', context)
+
+
 def user_login(request):
     username = request.POST['username']
     password = request.POST['password']

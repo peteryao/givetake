@@ -11,6 +11,10 @@ urlpatterns += patterns('volunteer.views',
     url(r'^user/login/$', 'user_login', name="user_login"),
     )
 
+urlpatterns += patterns('volunteer.views', 
+    url(r'^charity/(?P<charity_id>\d+)', 'charity_profile', name="charity_profile")
+    )
+
 urlpatterns += patterns('',
     url(r'^user/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name="auth_logout"),
     url(r'^user/logout/(?P<next_page>.*)/$', 'django.contrib.auth.views.logout', name='auth_logout_next'),
