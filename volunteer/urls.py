@@ -5,3 +5,7 @@ urlpatterns = patterns('volunteer.views',
     url(r'^listing/$', 'listing', name="listing"),
     url(r'^charities/$', 'charities', name="charity"),
     )
+
+urlpatterns += patterns('volunteer.views', 
+    url(r'^user/login/$', 'user_login', name="user_login"),
+    )
