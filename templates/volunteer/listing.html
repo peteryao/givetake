@@ -1,0 +1,7 @@
+{% extends "volunteer/base.html" %}
+
+{% block content %}
+    {% for service in service_list %}
+    {{service}}
+    {% endfor %}
+{% endblock %}  
