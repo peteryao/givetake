@@ -39,3 +39,7 @@ def user_login(request):
     else:
         return HttpResponseRedirect('/')
         # Return an 'invalid login' error message.
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/')

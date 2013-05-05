@@ -8,4 +8,5 @@ urlpatterns = patterns('volunteer.views',
 
 urlpatterns += patterns('volunteer.views', 
     url(r'^user/login/$', 'user_login', name="user_login"),
+    url(r'^user/logout/$', 'user_logout', name="user_logout"),
     )
