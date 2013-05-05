@@ -3,6 +3,7 @@
 {% block active-listing %}class="active"{% endblock %}
 
 {% block content %}
+ <li><a href="#portfolio" class="anchorLink">Portfolio</a></li>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -23,4 +24,126 @@
             {% endfor %}
         </tbody>
     </table>
-{% endblock %}  
+
+          <div class="row section" id="portfolio">
+    <div class="container">
+ 
+                  <h2>portfolio</h2>
+                  <p class="intro">Responsive. Dynamic. Awesome. Isotope. Just a few of the words to describe the Portfolio.</p>
+      <!-- Start Portfolio Navigation -->
+      <nav class="primary m-btn-group toggle-buttons clearfix">
+          <ul>
+              <li><a href="#" class="m-btn selected" data-filter="*">All</a></li>
+              <li><a href="#" class="m-btn" data-filter=".web">Web App</a></li>
+              <li><a href="#" class="m-btn" data-filter=".pro">Program</a></li>
+              <li><a href="#" class="m-btn" data-filter=".ios">iOS</a></li>
+              <li><a href="#" class="m-btn" data-filter=".wp">WordPress</a></li>
+              <li><a href="#" class="m-btn" data-filter=".fun">Fun</a></li>
+          </ul>
+      </nav>
+ 
+ 
+            <!-- START Portfolio items -->
+ 
+            <section class="main clearfix">
+ 
+            <div class="portfolio">
+ 
+                <figure class="entry web logo">
+                    <img src="img/portfolio-image.jpg" alt="">
+                </figure>
+ 
+                <figure class="entry web">
+                    <img src="img/portfolio-image2.jpg" alt="">
+                </figure>
+ 
+                <figure class="entry logo">
+                    <img src="img/portfolio-image.jpg" alt="">
+                </figure>
+ 
+                <figure class="entry web">
+                    <img src="img/portfolio-image.jpg" alt="">
+                </figure>
+ 
+                <figure class="entry print">
+                    <img src="img/portfolio-image.jpg" alt="">
+                </figure>
+ 
+                <figure class="entry ill">
+                    <img src="img/portfolio-image2.jpg" alt="">
+                </figure>
+ 
+                <figure class="entry web">
+                    <img src="img/portfolio-image2.jpg" alt="">
+                </figure>
+ 
+                <figure class="entry print">
+                    <img src="img/portfolio-image.jpg" alt="">
+                </figure>
+ 
+                <figure class="entry video">
+                    <img src="img/portfolio-image2.jpg" alt="">
+                </figure>
+ 
+                <figure class="entry web">
+                    <img src="img/portfolio-image2.jpg" alt="">
+                </figure>
+ 
+ 
+ 
+            </div>
+ 
+        </section>
+ 
+ 
+ 
+    </div>
+  </div>
+ 
+ {% endblock %}
+{% block script %}
+<script>
+$(window).load(function(){
+ 
+    var $container = $('.portfolio');
+    $container.isotope({
+        filter: '*',
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false,
+        }
+    });
+ 
+   $('nav.primary ul a').click(function(){
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+            filter: selector,
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false,
+            }
+        });
+      return false;
+    });
+ 
+   var $optionSets = $('nav.primary ul'),
+       $optionLinks = $optionSets.find('a');
+   
+       $optionLinks.click(function(){
+          var $this = $(this);
+      // don't proceed if already selected
+      if ( $this.hasClass('selected') ) {
+          return false;
+      }
+   var $optionSet = $this.parents('nav.primary ul');
+   $optionSet.find('.selected').removeClass('selected');
+   $this.addClass('selected');  
+});
+ 
+ 
+ 
+});
+</script>
+{% endblock %}
