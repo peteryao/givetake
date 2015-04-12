@@ -8,6 +8,9 @@ class Charity(models.Model):
     url = models.URLField(max_length=256, default=None)
     description = models.TextField(max_length=1028)
 
+    def __unicode__(self):
+        return self.name
+
 class Service(models.Model):
     name = models.CharField(max_length=256)
     available = models.BooleanField(default=True)
